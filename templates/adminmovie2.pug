@@ -1,0 +1,50 @@
+extends layout.pug
+
+block content
+    div.container#adminaddmovie
+        div.row.justify-content-center
+            div.col-12.h3.text-center.mb-3
+                div Modifier un film
+            div.col-md-6
+                - var messages = getMessages()
+                    if messages.notify
+                        each msg in messages.notify
+                            div.alert.alert-success.mt-2= msg
+                    if messages.error
+                        each msg in messages.error
+                            div.alert.alert-danger.mt-2= msg
+                            
+                form(method="post" action="/admin/modifier-film/"+id)
+                    div.mb-3
+                        label.form-label(for="idthemoviedb") idthemoviedb
+                        input#idthemoviedb.form-control(type="text" name="idthemoviedb" value=idthemoviedb)
+                    div.mb-3
+                        label.form-label(for="title") Titre
+                        input#title.form-control(type="text" name="title" value=title)
+                    div.mb-3
+                        label.form-label(for="actors") Acteurs
+                        input#actors.form-control(type="text" name="actors" value=actors)
+                    div.mb-3
+                        label.form-label(for="country") Pays
+                        input#country.form-control(type="text" name="country" value=country)
+                    div.mb-3
+                        label.form-label(for="genres") Genres
+                        input#genres.form-control(type="text" name="genres" value=genres)
+                    div.mb-3
+                        label.form-label(for="plot") Résumé
+                        textarea#plot.form-control(rows="3" name="plot")=plot
+                    div.mb-3
+                        label.form-label(for="last") Durée
+                        input#last.form-control(type="text" name="last" value=last)
+                    div.mb-3
+                        label.form-label(for="photo") Image
+                        input#photo.form-control(type="text" name="photo" value=photo)
+                    div.mb-3
+                        label.form-label(for="video") Video
+                        input#video.form-control(type="text" name="video" value=video)
+                    div.mb-3
+                        label.form-label(for="release") Date de sortie
+                        input#release.form-control(type="date" name="release" min="1900-01-01" max="2030-12-31" value=release)
+
+                    div.d-grid.gap-2.mt-2
+                        button.btn.btn-primary(type="submit") Enregistrer

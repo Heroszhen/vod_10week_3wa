@@ -1,0 +1,56 @@
+/*reset*/
+img{
+    width: 100%;
+    height:auto;
+}
+div#loader{
+    position: absolute;
+    z-index: 9999999;
+    position: fixed;
+    top:0;
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:white;
+    display:none;
+}
+div#loader img{
+    width:80%;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+
+
+
+
+nav#mainnav{
+    justify-content: flex-start;
+}
+
+#adminaddmovie div#searchmovies{
+    width:100%;
+    padding-top:30px;
+}
+
+#adminaddmovie .onemovie{
+    cursor: pointer;
+    margin-bottom:10px;
+    color:blue;
+}
+#adminaddmovie .onemovie:hover{
+    padding:5px;
+    background-color:gainsboro;
+}
+
+#onefilm #listcomments>div{
+    padding:5px;
+}
+
+#onefilm #listcomments>div:hover{
+    background-color:gainsboro;
+}

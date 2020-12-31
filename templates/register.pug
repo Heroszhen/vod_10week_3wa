@@ -1,0 +1,32 @@
+extends layout.pug
+
+block content
+    div.container
+        div.row.justify-content-center
+            div.col-12.h3.text-center.mb-3
+                div INSCRIPTION
+            div.col-md-6
+                form(method="post" action="inscription")
+                    div.mb-3
+                        label.form-label(for="firstname") Prénom
+                        input#firstname.form-control(type="text" name="firstname" value=firstname)
+                    div.mb-3
+                        label.form-label(for="lastname") Nom
+                        input#lastname.form-control(type="text" name="lastname" value=lastname)
+                    div.mb-3
+                        label.form-label(for="email") Mail
+                        input#email.form-control(type="email" name="email" aria-describedby="emailHelp" value=email)
+                    div.mb-3
+                        label.form-label(for="password") Mot de passe
+                        input#password.form-control(type="password" name="password" value=password)
+
+                    - var messages = getMessages()
+                    if messages.notify
+                        each msg in messages.notify
+                            div.alert.alert-success.mt-2= msg
+                    if messages.error
+                        each msg in messages.error
+                            div.alert.alert-danger.mt-2= msg
+
+                    div.d-grid.gap-2.mt-2
+                        button.btn.btn-primary(type="submit") S'inscrire

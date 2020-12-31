@@ -1,0 +1,47 @@
+extends layout.pug
+
+block content
+    div.container#onefilm.p-3(data-id= film["_id"])
+        div.row.justify-content-between
+            div.col-12.text-center.fw-bold.h2.mb-5= film["title"]
+            div.col-6.mb-3
+                iframe(width="560" height="315" src="https://www.youtube.com/embed/"+film["video"] frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscree)
+            div.col-md-6
+                div.mb-3
+                    span.text-muted Date de sortie : 
+                    span #{new Date(film["release"]).getDay() + 1}
+                    span /#{new Date(film["release"]).getMonth() + 1}
+                    span /#{new Date(film["release"]).getFullYear()}
+                div.mb-3
+                    span.text-muted Acteurs : 
+                    span #{film["actors"]}
+                div.mb-3
+                    span.text-muted Genres : 
+                    span #{film["genres"]}
+                div.mb-3 
+                    span.text-muted Pays : 
+                    span #{film["country"]}
+                div.mb-3 
+                    span.text-muted Durée :  
+                    span #{film["last"]} minutes
+                div
+                    span.text-muted Résumé : 
+                    span!= film["plot"] 
+
+            if session.user
+                div.col-md-12.mt-3   
+                    .form-floating.mb-2
+                        textarea#floatingTextarea.form-control(placeholder="Leave a comment here")
+                        label(for="floatingTextarea") Commentaire
+                    .d-grid.gap-2
+                        button.btn.btn-primary(type="button" id="sendcomment") Enregistrer
+            
+            div.col-md-12.mt-5#listcomments
+                each comment in film["comments"]
+                    div.mb-3
+                        span.fw-bold.h4.text-primary= comment["firstname"]
+                        span.text-info (
+                        sapn.text-info= comment["created"]
+                        span.text-info )
+                        span.deletecomment.text-danger.pointer.h3(data-id= comment["_id"])  x
+                        div= comment["message"]

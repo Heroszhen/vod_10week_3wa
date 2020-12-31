@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    div.container#onecategory
+        div.row
+            h3.col-12.text-center.fw-bold= category
+            each film in films
+                div.col-md-4.text-center.mb-4
+                    .card(style="width: 18rem;margin:0 auto;")
+                        img.card-img-top(src=film["photo"] alt="...")
+                        .card-body
+                            a(href="/film/"+film["_id"] alt="")
+                                h5.card-title= film["title"]
+                            p.card-text
+                                span!= film["plot"].slice(0,50)  
+                                span ....
+
+
+
+
+
+

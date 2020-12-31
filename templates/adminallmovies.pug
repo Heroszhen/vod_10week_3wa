@@ -1,0 +1,32 @@
+extends layout.pug
+
+block content
+    div.container#adminaallmovies
+        div.row
+            div.col-12.h3.text-center.mb-3.justify-content-between
+                div Tous les films
+            div.col-12
+                div.pb-1.text-end
+                    a.btn.btn-primary(href="/admin/ajouter-film") Ajouter un film
+                table.table
+                    thead.table-dark
+                        th(scope="col") Titre
+                        th(scope="col") Genres
+                        th(scope="col") Acteurs
+                        th(scope="col") Photo
+                        th(scope="col") Date de sortie
+                        th(scope="col") Actions
+                    tbody
+                        each movie in movies
+                            tr
+                                td= movie["title"]
+                                td= movie["genres"]
+                                td= movie["actors"]
+                                td
+                                    img(src=movie["photo"] alt="")
+                                td #{new Date(movie["release"]).getFullYear()}
+                                td
+                                    a.btn.btn-info.btn-sm.mb-2(href="/admin/modifier-film/" + movie['_id']) Modifier
+                                    <br>
+                                    a.btn.btn-danger.btn-sm(href="/admin/deleteonefilm/" + movie['_id']) Supprimer
+                        

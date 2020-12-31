@@ -1,0 +1,24 @@
+extends layout.pug
+
+block content
+    h1.text-center VIDÉO A LA DEMANDE
+    div.container
+        div.row.justify-content-center
+            div.col-md-8
+                div#carouselExampleControls.carousel.slide(data-bs-ride="carousel")
+                    .carousel-inner
+                        .carousel-item.active
+                            img.d-block.w-100(src="https://www.cinechronicle.com/wp-content/uploads/2015/11/Alexandra-Daddario.jpg" alt="...")
+                        .carousel-item
+                            img.d-block.w-100(src="https://www.usmagazine.com/wp-content/uploads/2018/10/Alexandra-Daddario-on-dating.jpg" alt="...")
+                        .carousel-item
+                            img.d-block.w-100(src="https://img.srgcdn.com/e//Nmc1cXExUUd0RlpzaGdPdTA1WUcucG5n.jpg" alt="...")
+                    a.carousel-control-prev(href="#carouselExampleControls" role="button" data-bs-slide="prev")
+                        span.carousel-control-prev-icon(aria-hidden="true")
+                        span.visually-hidden Previous
+                    a.carousel-control-next(href="#carouselExampleControls" role="button" data-bs-slide="next")
+                        span.carousel-control-next-icon(aria-hidden="true")
+                        span.visually-hidden Next
+
+
+        

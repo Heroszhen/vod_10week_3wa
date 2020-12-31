@@ -1,0 +1,7 @@
+div.mb-3
+    span.fw-bold.h4.text-primary= comment["firstname"]
+    span.text-info (
+    sapn.text-info= comment["created"]
+    span.text-info )
+    span.deletecomment.text-danger.pointer.h3(data-id= comment["_id"])  x
+    div= comment["message"]

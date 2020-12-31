@@ -1,0 +1,16 @@
+npm install nodemon --save-dev
+npm install express --save
+npm i pug --save
+npm i body-parser --save
+npm i mongoose --save
+npm install express-flash-messages --save
+npm install express-session --save
+npm install bcryptjs --save
+npm i browser-refresh --save
+
+convert html to pug
+https://html2pug.now.sh/
+
+
+https://developers.themoviedb.org/3/movies/get-movie-credits
+heroszhen
